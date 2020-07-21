@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5 Assign 2</title>
+</head>
+<body>
+    <script>
+        class User {
+            constructor(name,age,mail) {
+                this.name = name;
+                this.age= age;
+                this.mail= mail;
+                this.coins =0;
+                this.courses= [];
+            }
+            login(){
+                console.log(` ${this.name} has logged in succesfully`)
+            }
+            logout(){
+                console.log(`${this.name} has logged out succesfully`)
+            }
+        }
+        class moderator extends User{
+            addCoins(user){
+                user.coins++;
+            }
+            subCoins(user){
+                user.coins--;
+            }
+        }
+        class admin extends moderator{
+            addCourse(user,courseName){
+                user.courses.push(courseName)
+                // console.log(user);
+            }
+            removeCourse(user,courseName){
+                if (user.courses.filter((item) => item == courseName)[0] == courseName){
+                user.courses.pop(courseName)
+
+                // console.log(user)
+                }
+                else{
+                    console.log(`${user.name} is not enrolled in that course`)
+                }
+
+            }
+        }
+        
+        let user1=new User("Riyas",20,"Riyas@gmail.com");
+        user1.logout();
+        let mod = new moderator("Javid",18,"javid@gmail.com");
+        mod.addCoins(user1);
+        mod.addCoins(user1);
+        mod.addCoins(user1);
+        mod.addCoins(user1);
+        mod.subCoins(user1);
+        console.log(`${user1.name} has ${user1.coins}`);
+        let admin1 = new admin("Ram",20,"ram@gmail.com");
+        admin1.addCourse(user1,"Js");
+        admin1.addCourse(user1,"Python");
+        // console.log(user1.name);
+        console.log(`${user1.name} has enrolled in  ${user1.courses}`);
+        admin1.removeCourse(user1,"Js");
+        console.log(`${user1.name} has enrolled in  ${user1.courses}`);
+    </script>
+</body>
+</html>

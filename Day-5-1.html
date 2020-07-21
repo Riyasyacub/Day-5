@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5 Assign 1</title>
+</head>
+<body>
+    <script>
+        var num=0;
+        while (num <= 0|| isNaN(num) ){
+            num =parseInt (prompt("enter the num"))
+        }
+        // console.log (num);
+        let arr=[]
+        for (let i=1;i<=num;i++){
+            arr.push(i);
+        }
+        // console.log(arr)
+        arr=arr.filter((el) => (el%2 != 0) )
+        // console.log(arr)
+        arr=arr.map((el) => el**3)
+        console.log (arr)
+    </script>
+</body>
+</html>
